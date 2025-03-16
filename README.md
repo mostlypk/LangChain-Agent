@@ -80,5 +80,4 @@ Alan Turing was an English mathematician, computer scientist, logician, cryptana
 *Pratiksha Kolekar*  
 March 17, 2025
 
-Additional Information: Instead of trying to save space, installing a better model serves better in the long run. Smaller modes have limitations.
-If you are using an IDE, open it in the "Run as administrator" mode
+Additional Information: If you are using an IDE, open it in the "Run as administrator" mode
