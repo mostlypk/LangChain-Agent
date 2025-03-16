@@ -5,17 +5,17 @@ from langchain_ollama import OllamaLLM
 from langchain.agents import initialize_agent, AgentType
 from langchain.memory import ConversationBufferMemory
 
-# ✅ Wikipedia Setup
+#  Wikipedia Setup
 wiki_api_wrapper = WikipediaAPIWrapper(top_k_results=3, lang="en")
 wiki_tool = WikipediaQueryRun(api_wrapper=wiki_api_wrapper)
 
-# ✅ Local LLM using Ollama (Mistral)
+#  Local LLM using Ollama (Mistral)
 llm = OllamaLLM(model="mistral")
 
-# ✅ Memory
+#  Memory
 memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
 
-# ✅ Initialize Agent
+#  Initialize Agent
 agent = initialize_agent(
     tools=[wiki_tool],
     llm=llm,
@@ -26,7 +26,7 @@ agent = initialize_agent(
     max_iterations=5,
 )
 
-# ✅ User Input Loop
+#  User Input Loop
 while True:
     user_input = input("\nEnter your query (or 'exit' to quit): ")
     if user_input.lower() == "exit":
@@ -40,18 +40,18 @@ while True:
         try:
             response = agent.invoke(user_input)
 
-            # ✅ Ensure proper response formatting
+            # Ensure proper response formatting
             if isinstance(response, dict) and 'output' in response:
                 print(f"\n🔹 Answer: {response['output']}")
             else:
                 print(f"\n🔹 Answer: {response}")
 
-            break  # ✅ Exit loop if successful
+            break  # Exit loop if successful
 
         except Exception as e:
             retry_count += 1
-            print(f"⚠️ Error (attempt {retry_count}/{max_retries}): {e}")
+            print(f" Error (attempt {retry_count}/{max_retries}): {e}")
             time.sleep(1)
 
             if retry_count == max_retries:
-                print("❌ Max retries reached. Could not complete query.")
+                print(" Max retries reached. Could not complete query.")
