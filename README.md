@@ -34,15 +34,13 @@ python agent.py
 ## **How It Works**  
 - The agent accepts user queries.  
 - If a query requires factual information, it searches Wikipedia.  
-- If it's a general question, Mistral generates a response.  
-- If the input is a math expression (e.g., `12+5`), it calculates the result.  
+- If it's a general question, Mistral generates a response.   
 - Type `exit` to quit.  
 
 ### **Example Queries:**  
 ```
 > Who is Sunita Williams?
 > What is the capital of Japan?
-> 25*4
 > exit
 ```
 
